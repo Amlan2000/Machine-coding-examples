@@ -1,18 +1,18 @@
-package Strategy;
+package Factory;
 
 import Services.Impl.FixedWindowAlgo;
 import Services.Impl.TokenBucketAlgo;
 import Services.RateLimittingAlgo;
 
-public class RateLimitingStrategy {
+public class RateLimitingFactory {
     
-    public static RateLimittingAlgo setRateLimitingAlgo(String strategy){
+    public static RateLimittingAlgo setRateLimitingAlgo(String factory){
         RateLimittingAlgo rateLimittingAlgo = null;
 
-        if(strategy.equals("fixedWindow")){
+        if(factory.equals("fixedWindow")){
             rateLimittingAlgo = new FixedWindowAlgo();
         }
-        else if(strategy.equalsIgnoreCase("tokenBucket")){
+        else if(factory.equalsIgnoreCase("tokenBucket")){
             rateLimittingAlgo = new TokenBucketAlgo();
 
         }

@@ -1,11 +1,11 @@
-package org.main;
+   package org.main;
 
 
 import Entities.User;
 import Services.Impl.UserServiceImpl;
 import Services.RateLimittingAlgo;
 import Services.UserService;
-import Strategy.RateLimitingStrategy;
+import Factory.RateLimitingFactory;
 import Utils.TestingAPIUtil;
 
 import java.util.concurrent.ExecutorService;
@@ -24,7 +24,7 @@ public class Main {
         userService.addUser("3", "basic");
 
         // Testing Fixed window algo
-        RateLimittingAlgo rateLimittingAlgo = RateLimitingStrategy.setRateLimitingAlgo("fixedWindow");
+        RateLimittingAlgo rateLimittingAlgo = RateLimitingFactory.setRateLimitingAlgo("fixedWindow");
 
         rateLimittingAlgo.resetUserBucket("1");
 
@@ -77,7 +77,7 @@ public class Main {
         // Testing token bucket algo
 
 
-        RateLimittingAlgo rateLimittingAlgo2 = RateLimitingStrategy.setRateLimitingAlgo("tokenBucket");
+        RateLimittingAlgo rateLimittingAlgo2 = RateLimitingFactory.setRateLimitingAlgo("tokenBucket");
 
         rateLimittingAlgo2.resetUserBucket("2");
 
